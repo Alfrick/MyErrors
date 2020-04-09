@@ -1,3 +1,46 @@
+package com.fusionfirst;
+
+import com.inversoft.rest.ClientResponse;
+import java.util.UUID;
+import com.inversoft.error.Errors;
+import io.fusionauth.client.FusionAuthClient;
+import io.fusionauth.domain.api.LoginRequest;
+import io.fusionauth.domain.api.LoginResponse;
+
+
+public class FusionFirst {		
+	
+	public static void main(String[] args) {
+		String apiKey = "Z77y_yshOSAIfF3sd370Ns6m4VkKcAOqFpyyzSGfnF4";
+		FusionAuthClient client = new FusionAuthClient(apiKey, "http://localhost:9011/api/login");	
+		final UUID applicationId = UUID.fromString("3c219e58-ed0e-4b18-ad48-f4f92793ae32");
+		
+		LoginRequest request = new LoginRequest(applicationId, "xxxxx", "xxxxx" );
+		
+		//System.out.println(request.applicationId);
+		
+		ClientResponse<LoginResponse, Errors> result = client.login(request);
+		if (result.wasSuccessful()) {
+			System.out.println(result.successResponse);			
+	    }else if (result.errorResponse != null){
+	    	Errors errors = result.errorResponse;
+	    	System.out.println(errors.toString());
+	    }else if (result.exception != null) {
+	        // Exception Handling
+	        Exception exception = result.exception;
+	        System.out.println(exception.toString());
+	      }
+			
+	}
+
+}
+
+
+
+
+
+//ERRORS RECEIVED BELOW
+
 "fieldErrors" : {
     "applicationId" : [ {
       "code" : "[couldNotConvert]applicationId",

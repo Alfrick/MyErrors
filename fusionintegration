@@ -1,0 +1,9 @@
+"fieldErrors" : {
+    "applicationId" : [ {
+      "code" : "[couldNotConvert]applicationId",
+      "message" : "Invalid [applicationId]. This must be a valid UUID String (e.g. 25a872da-bb44-4af8-a43d-e7bcb5351ebc)."
+    } ],
+    "userId" : [ {
+      "code" : "[couldNotConvert]userId",
+      "message" : "Invalid userId on the URL [api]. This must be a valid UUID String (e.g. 25a872da-bb44-4af8-a43d-e7bcb5351ebc)."
+    } ]
